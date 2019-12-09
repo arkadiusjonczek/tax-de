@@ -1,0 +1,33 @@
+{
+    "name": "arkadiusjonczek/tax-de",
+    "description": "Tax library for german tax calculation.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Arkadius Jonczek",
+            "email": "arkadius@jonczek.de"
+        }
+    ],
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "php": ">=7.1",
+        "phpunit/phpunit": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jonczek\\tax\\de\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jonczek\\tax\\de\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "vendor/bin/phpunit"
+        ]
+    }
+}
