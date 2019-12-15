@@ -1,5 +1,5 @@
 {
-    "name": "arkadiusjonczek/tax-de",
+    "name": "jonczek/tax",
     "description": "Tax library for german tax calculation.",
     "type": "library",
     "authors": [
@@ -17,12 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Jonczek\\tax\\de\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Jonczek\\tax\\de\\": "tests/"
+            "Jonczek\\Tax\\": "src/"
         }
     },
     "scripts": {
