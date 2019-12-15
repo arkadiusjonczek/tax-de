@@ -1,6 +1,6 @@
 <?php
 
-namespace Jonczek\Tax\Unit\Entity;
+namespace Jonczek\Tax\Test\Unit\Entity;
 
 use Jonczek\Tax\Entity\ValueAddedTaxEntry;
 use Jonczek\Tax\Enum\ValueAddedTaxRate;

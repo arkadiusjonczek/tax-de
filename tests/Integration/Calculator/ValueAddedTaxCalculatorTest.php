@@ -1,6 +1,6 @@
 <?php
 
-namespace Jonczek\Tax\Integration\Calculator;
+namespace Jonczek\Tax\Test\Integration\Calculator;
 
 use Jonczek\Tax\Calculator\ValueAddedTaxCalculator;
 use Jonczek\Tax\Entity\ValueAddedTaxEntry;

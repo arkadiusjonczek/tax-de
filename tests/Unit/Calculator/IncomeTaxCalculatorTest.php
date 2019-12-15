@@ -1,6 +1,6 @@
 <?php
 
-namespace Jonczek\Tax\Unit\Calculator;
+namespace Jonczek\Tax\Test\Unit\Calculator;
 
 use Jonczek\Tax\Calculator\IncomeTaxCalculator;
 use Jonczek\Tax\Enum\PersonalSituation;

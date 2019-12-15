@@ -5,6 +5,9 @@ namespace Jonczek\Tax\Calculator;
 use Jonczek\Tax\Entity\ValueAddedTaxEntry;
 use Jonczek\Tax\Repository\BasicRepository;
 
+/**
+ * Calculator for value added tax (Umsatzsteuer)
+ */
 class ValueAddedTaxCalculator
 {
     public function calculate(BasicRepository $repository): array

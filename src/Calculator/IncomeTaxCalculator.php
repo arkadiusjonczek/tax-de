@@ -5,6 +5,9 @@ namespace Jonczek\Tax\Calculator;
 use Jonczek\Tax\Enum\PersonalSituation;
 use Jonczek\Tax\Exception\CalculateException;
 
+/**
+ * Calculator for income tax (Einkommensteuer)
+ */
 class IncomeTaxCalculator
 {
     public function calculate(float $taxableProfit, int $personalSituation, int $year)
