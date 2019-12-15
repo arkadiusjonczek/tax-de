@@ -5,25 +5,31 @@ Tax library for german tax calculation.
 ## Installation
 
 ```bash
-composer install arkadiusjonczek/tax-de
+composer install jonczek/tax-de
 ```
 
 ## Usage
 
-### Value Added Tax Example
+### Value added tax calculation example
 
-Add tax entry in cents:
+Add tax entries to a repository:
 
 ```php
-$valueAddedTax = new ValueAddedTax();
-$valueAddedTax->addEntry(10000); // 100€
-$valueAddedTax->addEntry(20000);
-$valueAddedTax->addEntry(10000, ValueAddedTaxRate::REDUCED_RATE);
-$valueAddedTax->addEntry(20000, ValueAddedTaxRate::REDUCED_RATE);
-$valueAddedTax->addEntry(11900, ValueAddedTaxRate::FULL_RATE, false);
-$valueAddedTax->addEntry(21400, ValueAddedTaxRate::REDUCED_RATE, false);
-$tax = $valueAddedTax->getSum();
+$repository = new BasicRepository();
+$repository->add(new ValueAddedTaxEntry(119));
+$repository->add(new ValueAddedTaxEntry(238));
+$repository->add(new ValueAddedTaxEntry(107, ValueAddedTaxRate::REDUCED_RATE));
+$repository->add(new ValueAddedTaxEntry(214, ValueAddedTaxRate::REDUCED_RATE));
+$repository->add(new ValueAddedTaxEntry(100, ValueAddedTaxRate::REDUCED_RATE, true));
+$repository->add(new ValueAddedTaxEntry(200, ValueAddedTaxRate::FULL_RATE, true));
 ```
+
+Calculate value added tax using the repository:
+```php
+$calculator = new ValueAddedTaxCalculator();
+$result = $calculator->calculate($repository);
+```
+
 Result:
 ```php
 (
