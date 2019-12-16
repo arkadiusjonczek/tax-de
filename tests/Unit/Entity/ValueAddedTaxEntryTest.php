@@ -6,6 +6,10 @@ use Jonczek\Tax\Entity\ValueAddedTaxEntry;
 use Jonczek\Tax\Enum\ValueAddedTaxRate;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @group Unit
+ * @group ValueAddedTax
+ */
 class ValueAddedTaxEntryTest extends TestCase
 {
     /**

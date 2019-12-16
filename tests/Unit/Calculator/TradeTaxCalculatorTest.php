@@ -5,6 +5,10 @@ namespace Jonczek\Tax\Test\Unit\Calculator;
 use Jonczek\Tax\Calculator\TradeTaxCalculator;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @group Unit
+ * @group TradeTax
+ */
 class TradeTaxCalculatorTest extends TestCase
 {
     public function testCalculate()

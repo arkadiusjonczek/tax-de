@@ -8,6 +8,10 @@ use Jonczek\Tax\Enum\ValueAddedTaxRate;
 use Jonczek\Tax\Repository\BasicRepository;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @group Unit
+ * @group ValueAddedTax
+ */
 class ValueAddedTaxCalculatorTest extends TestCase
 {
     public function testCalculate()

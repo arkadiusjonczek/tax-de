@@ -6,6 +6,7 @@ use Jonczek\Tax\Calculator\IncomeTaxCalculator;
 use Jonczek\Tax\Enum\PersonalSituation;
 
 /**
+ * @group Unit
  * @group IncomeTax
  */
 class IncomeTaxCalculatorTest extends \PHPUnit\Framework\TestCase
