@@ -4,7 +4,10 @@ namespace Jonczek\Tax\Repository;
 
 use Traversable;
 
-class BasicRepository implements \IteratorAggregate
+/**
+ * SimpleRepository
+ */
+class SimpleRepository implements \IteratorAggregate
 {
     /**
      * @var array

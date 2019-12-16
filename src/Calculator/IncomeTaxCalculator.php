@@ -10,6 +10,13 @@ use Jonczek\Tax\Exception\CalculateException;
  */
 class IncomeTaxCalculator
 {
+    /**
+     * @param float $taxableProfit
+     * @param int $personalSituation
+     * @param int $year
+     * @return array
+     * @throws CalculateException
+     */
     public function calculate(float $taxableProfit, int $personalSituation, int $year)
     {
         if ($year <= 2001 && $year >= 2019) {
@@ -25,6 +32,12 @@ class IncomeTaxCalculator
         ];
     }
 
+    /**
+     * @param float $taxableProfit
+     * @param int $personalSituation
+     * @param int $year
+     * @return float
+     */
     protected function calculateIncomeTax(float $taxableProfit, int $personalSituation, int $year)
     {
         $ESt = 0.0;
@@ -53,9 +66,15 @@ class IncomeTaxCalculator
             $ESt = floor($ESt * 2);
         }
 
-        return $ESt;
+        return (float)$ESt;
     }
 
+    /**
+     * @param float $incomeTax
+     * @param int $personalSituation
+     * @param int $year
+     * @return float
+     */
     protected function calculateSolidarityTax(float $incomeTax, int $personalSituation, int $year)
     {
         // TODO: Freigrenze beachten
