@@ -4,7 +4,7 @@ namespace Jonczek\Tax\Calculator;
 
 use Jonczek\Tax\Entity\ValueAddedTaxEntry;
 use Jonczek\Tax\Model\ValueAddedTaxCalculationResult;
-use Jonczek\Tax\Repository\SimpleRepository;
+use Jonczek\Tax\Repository\GenericRepository;
 
 /**
  * Calculator for value added tax (Umsatzsteuer)
@@ -12,10 +12,10 @@ use Jonczek\Tax\Repository\SimpleRepository;
 class ValueAddedTaxCalculator
 {
     /**
-     * @param SimpleRepository $repository
+     * @param GenericRepository $repository
      * @return ValueAddedTaxCalculationResult
      */
-    public function calculate(SimpleRepository $repository): ValueAddedTaxCalculationResult
+    public function calculate(GenericRepository $repository): ValueAddedTaxCalculationResult
     {
         $net   = 0;
         $gross = 0;
