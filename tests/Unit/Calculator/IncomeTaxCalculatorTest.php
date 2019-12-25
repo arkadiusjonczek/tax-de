@@ -16,12 +16,12 @@ class IncomeTaxCalculatorTest extends \PHPUnit\Framework\TestCase
         $calculator = new IncomeTaxCalculator();
         $result = $calculator->calculate(50000, PersonalSituation::SINGLE, 2019);
 
-        self::assertEquals(12295, $result['incomeTax']);
-        self::assertEquals(676.22, $result['solidarityTax']);
+        self::assertEquals(12295, $result->getIncomeTax());
+        self::assertEquals(676.22, $result->getSolidarityTax());
 
         $result = $calculator->calculate(50000, PersonalSituation::MARRIED, 2019);
 
-        self::assertEquals(7582, $result['incomeTax']);
-        self::assertEquals(417.01, $result['solidarityTax']);
+        self::assertEquals(7582, $result->getIncomeTax());
+        self::assertEquals(417.01, $result->getSolidarityTax());
     }
 }

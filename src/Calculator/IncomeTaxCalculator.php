@@ -4,6 +4,7 @@ namespace Jonczek\Tax\Calculator;
 
 use Jonczek\Tax\Enum\PersonalSituation;
 use Jonczek\Tax\Exception\CalculateException;
+use Jonczek\Tax\Model\IncomeTaxCalculationResult;
 
 /**
  * Calculator for income tax (Einkommensteuer)
@@ -14,7 +15,7 @@ class IncomeTaxCalculator
      * @param float $taxableProfit
      * @param int $personalSituation
      * @param int $year
-     * @return array
+     * @return IncomeTaxCalculationResult
      * @throws CalculateException
      */
     public function calculate(float $taxableProfit, int $personalSituation, int $year)
@@ -26,10 +27,7 @@ class IncomeTaxCalculator
         $incomeTax     = $this->calculateIncomeTax($taxableProfit, $personalSituation, $year);
         $solidarityTax = $this->calculateSolidarityTax($incomeTax, $personalSituation, $year);
 
-        return [
-            'incomeTax'     => $incomeTax,
-            'solidarityTax' => $solidarityTax
-        ];
+        return new IncomeTaxCalculationResult($incomeTax, $solidarityTax);
     }
 
     /**
