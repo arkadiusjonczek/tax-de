@@ -15,7 +15,7 @@ composer install jonczek/tax-de
 Add tax entries to a repository:
 
 ```php
-$repository = new BasicRepository();
+$repository = new GenericRepository();
 $repository->add(new ValueAddedTaxEntry(119));
 $repository->add(new ValueAddedTaxEntry(238));
 $repository->add(new ValueAddedTaxEntry(107, ValueAddedTaxRate::REDUCED_RATE));
@@ -32,9 +32,10 @@ $result = $calculator->calculate($repository);
 
 Result:
 ```php
+Jonczek\Tax\Model\ValueAddedTaxCalculationResult Object
 (
-    [net] => 90000
-    [gross] => 101100
-    [tax] => 11100
+    [net:protected] => 900
+    [gross:protected] => 1023
+    [tax:protected] => 123
 )
 ```
