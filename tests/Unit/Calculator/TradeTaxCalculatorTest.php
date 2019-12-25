@@ -15,10 +15,10 @@ class TradeTaxCalculatorTest extends TestCase
     {
         $calculator = new TradeTaxCalculator();
 
-        $tradeTax = $calculator->calculate(20000, 485);
-        self::assertEquals(0, $tradeTax);
+        $result = $calculator->calculate(20000, 485);
+        self::assertEquals(0.0, $result->getTradeTax());
 
-        $tradeTax = $calculator->calculate(50000, 485);
-        self::assertEquals(4326.20, $tradeTax);
+        $result = $calculator->calculate(50000, 485);
+        self::assertEquals(4326.20, $result->getTradeTax());
     }
 }
