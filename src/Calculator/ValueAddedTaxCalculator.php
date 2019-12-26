@@ -21,11 +21,10 @@ class ValueAddedTaxCalculator
         $gross = 0;
         $tax   = 0;
 
+        /**
+         * @var ValueAddedTaxEntry $entry
+         */
         foreach ($repository as $entry) {
-            /**
-             * @var ValueAddedTaxEntry
-             */
-            $entry;
             $net   += $entry->getNet();
             $gross += $entry->getGross();
             $tax   += $entry->getTax();

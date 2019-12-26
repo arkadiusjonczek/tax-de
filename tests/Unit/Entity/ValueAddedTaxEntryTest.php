@@ -76,4 +76,18 @@ class ValueAddedTaxEntryTest extends TestCase
         self::assertEquals($expectedRate,  $entry->getRate());
         self::assertEquals($expectedTax,   $entry->getTax());
     }
+
+    /**
+     * Test value added tax entry with no rate.
+     */
+    public function testEntryWithNoRate()
+    {
+        $entry1 = new ValueAddedTaxEntry(100, ValueAddedTaxRate::NO_RATE);
+        $entry2 = new ValueAddedTaxEntry(100, ValueAddedTaxRate::NO_RATE, true);
+
+        self::assertEquals($entry1->getNet(),   $entry2->getNet());
+        self::assertEquals($entry1->getGross(), $entry2->getGross());
+        self::assertEquals($entry1->getTax(),   $entry2->getTax());
+        self::assertEquals($entry1->getRate(),  $entry2->getRate());
+    }
 }
