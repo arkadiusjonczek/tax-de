@@ -1,6 +1,16 @@
 # tax-de
 
-Tax library for german tax calculation.
+Tax library for german tax calculation written in PHP.
+
+## Overview
+
+- Income Tax (Einkommensteuer)
+- Trade Tax / Business Tax (Gewerbesteuer)
+- Value Added Tax (Umsatzsteuer)
+- Solidarity Tax (Solidaritätszuschlag)
+- Rate Of Assessment / Trade Tax Factor (Hebesatz)
+- ~~Corporation Tax (Körperschaftsteuer)~~
+- ~~Cash Accounting (Einahmen-Überschuss-Rechnung)~~
 
 ## Installation
 
