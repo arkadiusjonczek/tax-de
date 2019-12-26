@@ -11,6 +11,9 @@ use Jonczek\Tax\Model\IncomeTaxCalculationResult;
  */
 class IncomeTaxCalculator
 {
+    const SOLIDARITY_TAX_ALLOWANCE = 972;
+    const SOLIDARITY_TAX_FULL      = 1340;
+
     /**
      * @param float $taxableProfit
      * @param int $personalSituation
@@ -38,6 +41,8 @@ class IncomeTaxCalculator
      */
     protected function calculateIncomeTax(float $taxableProfit, int $personalSituation, int $year)
     {
+        // TODO: Kinderfreibeträge beachten
+
         $ESt = 0.0;
 
         if ($personalSituation === PersonalSituation::MARRIED) {
@@ -75,10 +80,29 @@ class IncomeTaxCalculator
      */
     protected function calculateSolidarityTax(float $incomeTax, int $personalSituation, int $year)
     {
-        // TODO: Freigrenze beachten
-        // TODO: Satz je Jahr beachten
+        // TODO: Satz und Freigrenze ab 2021 Jahr beachten
 
-        $solidarityTax = $incomeTax * 5.5 / 100;
+        // Freigrenze bis einschließlich 972 EUR bei Singles bzw. 1944 EUR bei Verheirateten
+        if ($personalSituation === PersonalSituation::SINGLE && $incomeTax <= self::SOLIDARITY_TAX_ALLOWANCE ||
+            $personalSituation === PersonalSituation::MARRIED && $incomeTax <= self::SOLIDARITY_TAX_ALLOWANCE * 2) {
+            return 0.0;
+        }
+
+        // Innerhalb der Gleitzone von 973 EUR bis 1340 EUR bei Singles bzw. 1944 EUR bis 2680 EUR bei Verheirateten
+        // beträgt der Steuersatz 20% abzgl. des Freibetrags, darüber liegt er bei 5,5% auf den vollen Betrag
+        if ($personalSituation === PersonalSituation::SINGLE && $incomeTax < self::SOLIDARITY_TAX_FULL ||
+            $personalSituation === PersonalSituation::MARRIED && $incomeTax < self::SOLIDARITY_TAX_FULL * 2) {
+            if ($personalSituation === PersonalSituation::SINGLE) {
+                $incomeTax -= self::SOLIDARITY_TAX_ALLOWANCE;
+            } else if ($personalSituation === PersonalSituation::MARRIED) {
+                $incomeTax -= self::SOLIDARITY_TAX_ALLOWANCE * 2;
+            }
+            $solidarityTaxRate = 20;
+        } else {
+            $solidarityTaxRate = 5.5;
+        }
+
+        $solidarityTax = $incomeTax * $solidarityTaxRate / 100;
         $solidarityTax = round($solidarityTax, 2, PHP_ROUND_HALF_DOWN);
 
         return $solidarityTax;
