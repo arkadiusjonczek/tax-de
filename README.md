@@ -10,7 +10,7 @@ Tax library for german tax calculation written in PHP.
 - Solidarity Tax (Solidaritätszuschlag)
 - Rate Of Assessment / Trade Tax Factor (Hebesatz)
 - ~~Corporation Tax (Körperschaftsteuer)~~
-- ~~Cash Accounting (Einahmen-Überschuss-Rechnung)~~
+- Cash Accounting (Einahmen-Überschuss-Rechnung)
 
 ## Installation
 
