@@ -3,6 +3,7 @@
 namespace Jonczek\Tax\Test\Integration\Calculator;
 
 use Jonczek\Tax\Calculator\CashAccountingCalculator;
+use Jonczek\Tax\Calculator\ValueAddedTaxCalculator;
 use Jonczek\Tax\Entity\ValueAddedTaxEntry;
 use Jonczek\Tax\Repository\GenericRepository;
 use PHPUnit\Framework\TestCase;
@@ -23,7 +24,7 @@ class CashAccountingCalculatorTest extends TestCase
         $expensesRepository->add(new ValueAddedTaxEntry(250));
         $expensesRepository->add(new ValueAddedTaxEntry(235));
 
-        $calculator = new CashAccountingCalculator();
+        $calculator = new CashAccountingCalculator(new ValueAddedTaxCalculator());
         $result = $calculator->calculate($incomeRepository, $expensesRepository);
 
         self::assertEquals(500, $result->getNet());
@@ -43,7 +44,7 @@ class CashAccountingCalculatorTest extends TestCase
         $expensesRepository->add(new ValueAddedTaxEntry(595));
         $expensesRepository->add(new ValueAddedTaxEntry(200));
 
-        $calculator = new CashAccountingCalculator();
+        $calculator = new CashAccountingCalculator(new ValueAddedTaxCalculator());
         $result = $calculator->calculate($incomeRepository, $expensesRepository);
 
         self::assertEquals(-168.07, round($result->getNet(), 2));

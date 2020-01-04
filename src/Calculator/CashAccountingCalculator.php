@@ -8,6 +8,21 @@ use Jonczek\Tax\Repository\GenericRepository;
 class CashAccountingCalculator
 {
     /**
+     * @var ValueAddedTaxCalculator
+     */
+    protected $calculator;
+
+    /**
+     * CashAccountingCalculator constructor.
+     *
+     * @param ValueAddedTaxCalculator $calculator
+     */
+    public function __construct(ValueAddedTaxCalculator $calculator)
+    {
+        $this->calculator = $calculator;
+    }
+
+    /**
      * @param GenericRepository $incomeRepository
      * @param GenericRepository $expensesRepository
      *
@@ -15,10 +30,8 @@ class CashAccountingCalculator
      */
     public function calculate(GenericRepository $incomeRepository, GenericRepository $expensesRepository)
     {
-        $calculator = new ValueAddedTaxCalculator();
-
-        $incomeResult   = $calculator->calculate($incomeRepository);
-        $expensesResult = $calculator->calculate($expensesRepository);
+        $incomeResult   = $this->calculator->calculate($incomeRepository);
+        $expensesResult = $this->calculator->calculate($expensesRepository);
 
         return new CashAccountingCalculationResult($incomeResult, $expensesResult);
     }
