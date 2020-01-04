@@ -13,6 +13,7 @@ class ValueAddedTaxCalculator
 {
     /**
      * @param GenericRepository $repository
+     *
      * @return ValueAddedTaxCalculationResult
      */
     public function calculate(GenericRepository $repository): ValueAddedTaxCalculationResult

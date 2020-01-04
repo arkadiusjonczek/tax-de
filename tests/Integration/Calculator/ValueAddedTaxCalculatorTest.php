@@ -9,7 +9,7 @@ use Jonczek\Tax\Repository\GenericRepository;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @group Unit
+ * @group Integration
  * @group ValueAddedTax
  */
 class ValueAddedTaxCalculatorTest extends TestCase
