@@ -2,6 +2,20 @@
     "name": "jonczek/tax-de",
     "description": "Tax library for german tax calculation.",
     "type": "library",
+    "keywords": [
+        "tax",
+        "taxes",
+        "business",
+        "company",
+        "income-tax",
+        "trade-tax",
+        "busines-tax",
+        "value-added-tax",
+        "solidarity-tax",
+        "trade-tax-factor",
+        "cash-accounting"
+    ],
+    "homepage": "https://github.com/arkadiusjonczek/tax-de",
     "license": "LGPL-3.0-only",
     "authors": [
         {
@@ -10,10 +24,10 @@
         }
     ],
     "require": {
-        "php": ">=7.1"
+        "php": ">=7.2 <8.0"
     },
     "require-dev": {
-        "php": ">=7.1",
+        "php": ">=7.2 <8.0",
         "phpunit/phpunit": "^7.5"
     },
     "autoload": {
